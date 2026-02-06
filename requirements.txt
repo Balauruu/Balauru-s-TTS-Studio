@@ -1,0 +1,9 @@
+# Base environment (tts_studio) dependencies
+gradio
+requests
+librosa
+soundfile
+numpy
+pydub
+faster-whisper
+clearvoice

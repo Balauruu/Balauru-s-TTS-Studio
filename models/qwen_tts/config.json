@@ -1,0 +1,30 @@
+{
+  "name": "Qwen3-TTS Base (Voice Clone)",
+  "id": "qwen_tts_base",
+  "port": 5002,
+  "conda_env": "qwen_env",
+  "sample_rate": 24000,
+  "needs_transcript": true,
+  "needs_text_preprocessing": false,
+  "supports_event_tags": false,
+  "supported_languages": ["zh", "en", "ja", "ko", "de", "fr", "ru", "pt", "es", "it"],
+  "text_preprocessing": {},
+  "parameters": [
+    {"name": "x_vector_only_mode", "type": "checkbox", "default": false,
+     "label": "X-Vector only (no transcript needed, lower quality)"},
+    {"name": "language", "type": "dropdown",
+     "choices": ["Auto", "Chinese", "English", "Japanese", "Korean", "German", "French", "Russian", "Portuguese", "Spanish", "Italian"],
+     "default": "Auto"},
+    {"name": "temperature",        "type": "slider", "min": 0.1, "max": 2.0, "default": 0.9, "step": 0.05},
+    {"name": "top_k",              "type": "slider", "min": 1,   "max": 200, "default": 50,  "step": 1},
+    {"name": "top_p",              "type": "slider", "min": 0.0, "max": 1.0, "default": 1.0, "step": 0.01},
+    {"name": "repetition_penalty", "type": "slider", "min": 1.0, "max": 2.0, "default": 1.05, "step": 0.01},
+    {"name": "seed",               "type": "number", "default": 0, "label": "Seed (0=Random)"}
+  ],
+  "chunk_strategies": [
+    "Sentence Split",
+    "Sentence Batching (<300 chars)",
+    "Sentence Batching (<500 chars)",
+    "No Split"
+  ]
+}

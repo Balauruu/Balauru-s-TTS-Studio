@@ -1,0 +1,35 @@
+{
+  "name": "Chatterbox Turbo",
+  "id": "chatterbox",
+  "port": 5001,
+  "conda_env": "cb_env",
+  "sample_rate": 24000,
+  "needs_transcript": false,
+  "needs_text_preprocessing": true,
+  "supports_event_tags": true,
+  "supported_languages": ["en"],
+  "text_preprocessing": {
+    "normalize_numbers": true,
+    "expand_abbreviations": true,
+    "clean_whitespace": true,
+    "move_punctuation": true,
+    "replace_dashes": true,
+    "pause_tags": true
+  },
+  "parameters": [
+    {"name": "temperature",        "type": "slider", "min": 0.05, "max": 2.0, "default": 0.8, "step": 0.05},
+    {"name": "top_p",              "type": "slider", "min": 0.0,  "max": 1.0, "default": 0.95, "step": 0.01},
+    {"name": "top_k",              "type": "slider", "min": 0,    "max": 1000, "default": 1000, "step": 1},
+    {"name": "repetition_penalty", "type": "slider", "min": 1.0,  "max": 2.0, "default": 1.2, "step": 0.01},
+    {"name": "min_p",              "type": "slider", "min": 0.0,  "max": 1.0, "default": 0.0, "step": 0.01},
+    {"name": "seed",               "type": "number", "default": 0, "label": "Seed (0=Random)"},
+    {"name": "norm_loudness",      "type": "checkbox", "default": true, "label": "Normalize Loudness"}
+  ],
+  "chunk_strategies": [
+    "Sentence Batching (<300 chars)",
+    "Sentence Batching (<500 chars)",
+    "Sentence Split",
+    "Paragraph Split",
+    "No Split"
+  ]
+}

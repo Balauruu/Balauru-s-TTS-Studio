@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Output files (generated audio)
+output/
+
+# Voice samples (user data, large files)
+voices/*.wav
+voices/*.mp3
+voices/*.flac
+
+# Keep voice transcripts
+!voices/*.txt
+
+# Temp files
+temp/
+*.tmp
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Env
+.env
